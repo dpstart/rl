@@ -1,0 +1,12 @@
+__pychache__
+.DS_Store
+_markdown_main/
+images/
+main.aux
+main.fdb_latexmk
+main.fls
+main.log
+main.markdown.in
+main.markdown.lua
+main.markdown.out
+main.pdf

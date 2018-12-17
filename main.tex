@@ -1,0 +1,52 @@
+\title{Button and Sarto notes}
+\author{Daniele Paliotta}
+
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+
+\begin{document}
+\maketitle
+
+\section{The k-Armed Bandit}
+
+
+\section{Dynamic Programming}
+
+DP algorithms in RL require a perfect representation of a MDP. This is a strong hypothesis,
+and coupled with the fact tha they are computationally expensive makes them rarely used in practice.
+However, they are theoretically important, since all others approaches are pretty much ways of achieving 
+the same results with less computation and without assuming perfect knowledge of the MDP.\\
+The key general ideas is to use value functions to otrganize and structure the search for good policies.
+
+\subsection{Policy evaluaion}
+
+\begin{itemize}
+   \item  Problem: compute $v_{\pi}$ for a given policy $\pi$.
+   \item Solution: Iterative application of Bellman expectation backup.
+ \end{itemize}
+ 
+Bellman expectation equation:
+
+\begin{align}
+v_{\pi} = E_{\pi}[G_t \mid S_t = s] \mspace{150mu}\notag\\
+= E_{\pi}[R_{t+1} + \gamma G_{t+1} \mid S_t = s] \mspace{150mu}\notag\\
+= E_{\pi}[R_{t+1} + \gamma v_{\pi}(S_{t+1}) \mid S_t = s] \mspace{150mu}\notag\\
+= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a)[r + \gamma v_{\pi}(s')]\mspace{150mu}
+\end{align}
+
+We apply this equation iteratevily for each state. If we make the updates \textit{in place},
+the algorithm still converges.
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{images/p-eval.png}
+\end{figure}
+
+\subsection{Policy improvement}
+The value function gives us information that we can use to improve our current policy.
+
+
+
+\end{document}  
